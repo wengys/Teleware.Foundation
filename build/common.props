@@ -1,0 +1,13 @@
+﻿<Project>
+   <Import Project="..\version.props" />
+   <PropertyGroup>
+    <Product>Teleware.Foundation</Product>
+    <!--<RepositoryUrl>https://github.com/aspnet/Mvc</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>-->
+    <VersionSuffix Condition="'$(VersionSuffix)'!='' AND '$(BuildNumber)' != ''">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)'=='.NETFramework' AND '$(OutputType)'=='library'">
+    <PackageReference Include="NETStandard.Library" Version="$(NetStandardImplicitPackageVersion)" />
+  </ItemGroup>
+</Project>
