@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace Teleware.Foundation.Host.Application
+namespace Teleware.Foundation.Hosting.AspNetCore
 {
     /// <summary>
     ///

@@ -2,7 +2,7 @@
 using System;
 using Teleware.Foundation.Hosting;
 
-namespace Teleware.Foundation.Host.AspNetCore
+namespace Teleware.Foundation.Hosting.AspNetCore
 {
     /// <summary>
     /// AspNetCore执行环境

@@ -1,7 +1,6 @@
 ﻿using System;
-using Teleware.Foundation.Hosting;
 
-namespace Teleware.Foundation.Host.Application
+namespace Teleware.Foundation.Hosting.Application
 {
     /// <summary>
     /// 程序执行环境
@@ -17,7 +16,7 @@ namespace Teleware.Foundation.Host.Application
         {
             EnvironmentName = environmentName
                 ?? System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
-                ?? Teleware.Foundation.Host.EnvironmentName.Development;
+                ?? Teleware.Foundation.Hosting.EnvironmentName.Development;
             ContentRootPath = contentRootPath ?? System.AppContext.BaseDirectory;
         }
 

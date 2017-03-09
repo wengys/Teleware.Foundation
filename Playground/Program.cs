@@ -17,7 +17,7 @@ namespace Playground
         {
             Autofac.ContainerBuilder cb = new Autofac.ContainerBuilder();
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
-            cb.RegisterModule<Teleware.Foundation.Host.Application.Module>();
+            cb.RegisterModule<Teleware.Foundation.Hosting.Application.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();

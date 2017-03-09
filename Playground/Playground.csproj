@@ -11,7 +11,7 @@
     <ProjectReference Include="..\src\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Data.EntityFramework.Oracle\Teleware.Foundation.Data.EntityFramework.Oracle.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Data.EntityFramework\Teleware.Foundation.Data.EntityFramework.csproj" />
-    <ProjectReference Include="..\src\Teleware.Foundation.Host.Application\Teleware.Foundation.Host.Application.csproj" />
+    <ProjectReference Include="..\src\Teleware.Foundation.Hosting.Application\Teleware.Foundation.Hosting.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
