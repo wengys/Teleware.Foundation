@@ -1,4 +1,4 @@
-﻿namespace Teleware.Foundation.Host
+﻿namespace Teleware.Foundation.Hosting
 {
     /// <summary>
     /// 提供当前执行环境相关信息

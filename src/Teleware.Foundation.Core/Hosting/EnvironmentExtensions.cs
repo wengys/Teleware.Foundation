@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Teleware.Foundation.Host
+namespace Teleware.Foundation.Hosting
 {
     /// <summary>
     /// <see cref="IEnvironment"/>相关扩展

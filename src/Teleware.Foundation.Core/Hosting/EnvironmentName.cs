@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Teleware.Foundation.Host
+namespace Teleware.Foundation.Hosting
 {
     /// <summary>
     /// 常用环境名
