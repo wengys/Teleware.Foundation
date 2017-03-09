@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Teleware.Foundation.Host;
+using Teleware.Foundation.Hosting;
 using Xunit;
 
 namespace Teleware.Foundation.Core.Tests.Host
