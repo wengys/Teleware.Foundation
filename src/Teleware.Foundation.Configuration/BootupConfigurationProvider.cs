@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Teleware.Foundation.Host;
+using Teleware.Foundation.Hosting;
 
 namespace Teleware.Foundation.Configuration
 {
