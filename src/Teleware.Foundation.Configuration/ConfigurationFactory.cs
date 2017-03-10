@@ -10,13 +10,13 @@ namespace Teleware.Foundation.Configuration
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
-        private readonly BootupConfigurationProvider _bootupProvider;
+        private readonly IBootupConfigurationProvider _bootupProvider;
         private readonly IEnvironment _env;
         private readonly ConfigFactoryOptions _configOptions;
         private readonly string _configRootFullPath;
         private IConfigurationRoot _configuration;
 
-        public ConfigurationFactory(BootupConfigurationProvider bootupProvider, IEnvironment env)
+        public ConfigurationFactory(IBootupConfigurationProvider bootupProvider, IEnvironment env)
         {
             _bootupProvider = bootupProvider;
             _env = env;

@@ -15,7 +15,6 @@ namespace Teleware.Foundation.Configuration
             builder.AddOptions();
             builder.ConfigureOptions<DatabaseOptions>();
             builder.RegisterType<ConfigurationFactory>().As<IConfigurationFactory>().SingleInstance();
-            builder.RegisterType<BootupConfigurationProvider>().AsSelf().SingleInstance();
         }
     }
 }

@@ -8,6 +8,8 @@ using A.Playground.LandRegulation;
 using Teleware.Foundation.Data;
 using Teleware.FJJG.DataPump.Entity;
 using System.Linq;
+using Teleware.Foundation.Hosting.Application;
+using Teleware.Foundation.Hosting;
 
 namespace Playground
 {
@@ -15,9 +17,14 @@ namespace Playground
     {
         private static void Main(string[] args)
         {
+            var env = new ApplicationEnvironment();
+            var bootupConfigurationProvider = new BootupConfigurationProvider(env);
+
             Autofac.ContainerBuilder cb = new Autofac.ContainerBuilder();
+            cb.RegisterInstance<IEnvironment>(env);
+            cb.RegisterInstance(bootupConfigurationProvider).As<IBootupConfigurationProvider>();
+
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
-            cb.RegisterModule<Teleware.Foundation.Hosting.Application.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();

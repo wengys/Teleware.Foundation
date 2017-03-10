@@ -40,6 +40,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.Hosting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Web", "Playground.Web\Playground.Web.csproj", "{4783BA46-5DCE-4333-AD94-8E90B9CBA12B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.AspNetCore.MVC.Filters", "src\Teleware.Foundation.AspNetCore.MVC.Filters\Teleware.Foundation.AspNetCore.MVC.Filters.csproj", "{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -218,6 +220,18 @@ Global
 		{4783BA46-5DCE-4333-AD94-8E90B9CBA12B}.Release|x64.Build.0 = Release|Any CPU
 		{4783BA46-5DCE-4333-AD94-8E90B9CBA12B}.Release|x86.ActiveCfg = Release|Any CPU
 		{4783BA46-5DCE-4333-AD94-8E90B9CBA12B}.Release|x86.Build.0 = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|x64.Build.0 = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Debug|x86.Build.0 = Debug|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|x64.ActiveCfg = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|x64.Build.0 = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|x86.ActiveCfg = Release|Any CPU
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,5 +249,6 @@ Global
 		{AA8CD2BB-422E-4DE7-A46A-9E3E085F3252} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 		{89BD1522-24E7-4F15-96C3-C69052DEF4A8} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 		{08148CDD-972D-4078-80CF-59FB0688BD69} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
+		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 	EndGlobalSection
 EndGlobal

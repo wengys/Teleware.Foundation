@@ -25,7 +25,7 @@
     <None Update="bootup.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Configurations\Test.config.json">
+    <None Update="Configurations\database.config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

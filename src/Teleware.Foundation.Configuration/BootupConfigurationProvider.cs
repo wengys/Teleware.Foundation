@@ -6,7 +6,7 @@ using Teleware.Foundation.Hosting;
 
 namespace Teleware.Foundation.Configuration
 {
-    public class BootupConfigurationProvider
+    public class BootupConfigurationProvider: IBootupConfigurationProvider
     {
         private readonly IConfigurationRoot _bootupConfiguration;
 
@@ -22,6 +22,14 @@ namespace Teleware.Foundation.Configuration
         public IConfigurationRoot GetBootupConfiguration()
         {
             return _bootupConfiguration;
+        }
+    }
+
+    public static class BootupConfigurationProviderExtensions
+    {
+        public static IConfiguration GetAutofacConfiguration(this IBootupConfigurationProvider provider)
+        {
+            return provider.GetBootupConfiguration().GetSection("Autofac");
         }
     }
 }
