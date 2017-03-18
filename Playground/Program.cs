@@ -4,12 +4,11 @@ using Teleware.Foundation.Configuration;
 using Teleware.Foundation.Configuration.Extensions;
 using Microsoft.Extensions.Options;
 using Teleware.Data;
-using A.Playground.LandRegulation;
 using Teleware.Foundation.Data;
-using Teleware.FJJG.DataPump.Entity;
 using System.Linq;
 using Teleware.Foundation.Hosting.Application;
 using Teleware.Foundation.Hosting;
+using Teleware.Foundation.Domain.Entity;
 
 namespace Playground
 {
@@ -26,25 +25,27 @@ namespace Playground
 
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
-            cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
-            cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();
-            cb.RegisterType<ZZ_YSMapping>().As<IDbObjConfiguration>();
-            cb.ConfigureOptions<Test>();
+            cb.RegisterModule<Teleware.Foundation.Data.Memory.Module>();
+            //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
+            //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();
 
             var container = cb.Build();
             using (var lt = container.BeginLifetimeScope())
             {
-                //var provider = lt.Resolve<BootupConfigurationProvider>();
-                //var configFactory = lt.Resolve<IConfigurationFactory>();
-                //var configRoot = configFactory.GetConfigurationRoot();
-                //var opt = lt.Resolve<IOptionsSnapshot<Test>>().Value;
-
-                var repo = lt.Resolve<ICRUDRepository<ZZ_YS>>();
+                var uow = lt.Resolve<IUnitOfWork>();
+                var repo = lt.Resolve<ICRUDRepository<Test>>();
+                var test = new Test();
+                repo.Add(test);
+                var item0 = repo.Query().FirstOrDefault();
+                test.Foo = "a";
+                repo.Update(test);
                 var item = repo.Query().FirstOrDefault();
+                repo.Remove(test);
+                uow.Commit();
             }
         }
 
-        private class Test
+        private class Test : AbstractRootEntity
         {
             public string Foo { get; set; }
         }
