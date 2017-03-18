@@ -7,9 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="1.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Teleware.Foundation.Configuration\Teleware.Foundation.Configuration.csproj" />
     <ProjectReference Include="..\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
   </ItemGroup>
 

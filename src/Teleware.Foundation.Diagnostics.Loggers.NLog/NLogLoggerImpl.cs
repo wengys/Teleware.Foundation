@@ -1,5 +1,7 @@
 ﻿using NLog;
 using System;
+using System.Linq;
+using Teleware.Foundation.Configuration;
 
 using NLogSelf = NLog;
 
@@ -12,9 +14,12 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
     {
         private static NLogSelf.ILogger _innerLogger;
 
-        public NLogLoggerImpl(string loggerName)
+        public NLogLoggerImpl(string loggerName, NLogLogManager innerLogManager)
         {
-            _innerLogger = NLogSelf.LogManager.GetLogger(loggerName);
+            if (_innerLogger == null)
+            {
+                _innerLogger = innerLogManager.GetLogger(loggerName);
+            }
         }
 
         public void Debug(int eventId, string message)
@@ -98,82 +103,73 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
     {
         private static NLogSelf.ILogger _innerLogger;
 
-        static NLogLoggerImpl()
+        public NLogLoggerImpl(NLogLogManager innerLogManager)
         {
-            var catalog = typeof(TClass).FullName;
-            _innerLogger = NLogSelf.LogManager.GetLogger(catalog);
+            if (_innerLogger == null)
+            {
+                var name = typeof(TClass).FullName;
+                _innerLogger = innerLogManager.GetLogger(name);
+            }
         }
 
         public void Debug(int eventId, string message)
         {
-            //_innerLogger.Debug(message);
             Log(LogLevel.Debug, eventId, null, message);
         }
 
         public void Debug(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Debug, eventId, exception, message);
-            //_innerLogger.Debug(exception, message);
         }
 
         public void Error(int eventId, string message)
         {
             Log(LogLevel.Error, eventId, null, message);
-            //_innerLogger.Error(message);
         }
 
         public void Error(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Error, eventId, exception, message);
-            //_innerLogger.Error(exception, message);
         }
 
         public void Fatal(int eventId, string message)
         {
             Log(LogLevel.Fatal, eventId, null, message);
-            //_innerLogger.Fatal(message);
         }
 
         public void Fatal(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Fatal, eventId, exception, message);
-            //_innerLogger.Fatal(exception, message);
         }
 
         public void Info(int eventId, string message)
         {
             Log(LogLevel.Info, eventId, null, message);
-            //_innerLogger.Info(message);
         }
 
         public void Info(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Info, eventId, exception, message);
-            //_innerLogger.Info(exception, message);
         }
 
         public void Trace(int eventId, string message)
         {
             Log(LogLevel.Trace, eventId, null, message);
-            //_innerLogger.Trace(message);
         }
 
         public void Trace(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Trace, eventId, exception, message);
-            //_innerLogger.Trace(exception, message);
         }
 
         public void Warn(int eventId, string message)
         {
             Log(LogLevel.Warn, eventId, null, message);
-            //_innerLogger.Warn(message);
         }
 
         public void Warn(int eventId, Exception exception, string message)
         {
             Log(LogLevel.Warn, eventId, exception, message);
-            //_innerLogger.Warn(exception, message);
         }
 
         private void Log(NLogSelf.LogLevel level, int eventId, Exception exception, string message)
