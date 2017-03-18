@@ -23,12 +23,9 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
                     {
                         return;
                     }
-                    var configurationSection = bootupConfigurationProvider.GetBootupConfiguration().GetSection("Configuration");
-                    var configurationRootPath = configurationSection.GetSection("ConfigurationRootPath").Value;
-                    var configurationFileName = configurationSection.GetSection("NLog").Value;
-                    if (configurationFileName != null)
+                    var configurationFilePath = bootupConfigurationProvider.GetNLogConfigFilePath();
+                    if (configurationFilePath != null)
                     {
-                        var configurationFilePath = System.IO.Path.Combine(configurationRootPath, configurationFileName);
                         if (System.IO.File.Exists(configurationFilePath))
                         {
                             var config = new NLogSelf.Config.XmlLoggingConfiguration(configurationFilePath, false);

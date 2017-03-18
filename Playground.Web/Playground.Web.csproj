@@ -4,6 +4,10 @@
     <TargetFramework>net46</TargetFramework>
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Configurations\database.config.json" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.4.0" />
     <PackageReference Include="Autofac.Configuration" Version="4.0.1" />
@@ -36,6 +40,11 @@
     <ProjectReference Include="..\src\Teleware.Foundation.Hosting.AspNetCore\Teleware.Foundation.Hosting.AspNetCore.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Serialization.Serializers.Compress\Teleware.Foundation.Serialization.Serializers.Compress.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Serialization.Serializers.Json\Teleware.Foundation.Serialization.Serializers.Json.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Configurations\NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
