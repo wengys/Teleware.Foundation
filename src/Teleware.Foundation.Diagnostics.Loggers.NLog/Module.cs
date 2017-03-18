@@ -12,6 +12,7 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterGeneric(typeof(NLogLoggerImpl<>)).As(typeof(ILogger<>)).SingleInstance();
+            builder.Register((ctx) => new NLogLoggerFactory()).As(typeof(ILoggerFactory)).SingleInstance();
         }
     }
 }

@@ -1,13 +1,9 @@
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Text.RegularExpressions;
-using Teleware.Data;
-using Teleware.Data.Impl;
 using Teleware.Foundation.Options;
 using Teleware.Foundation.Assertion;
-using Oracle.ManagedDataAccess.EntityFramework;
 using System.Data.Entity;
 
 namespace Teleware.Data.Impl
@@ -47,9 +43,5 @@ namespace Teleware.Data.Impl
             var schema = item.Groups["schema"].Value;
             return schema;
         }
-
-        
-        
-        
     }
 }

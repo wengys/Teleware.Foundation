@@ -9,6 +9,7 @@ using System.Linq;
 using Teleware.Foundation.Hosting.Application;
 using Teleware.Foundation.Hosting;
 using Teleware.Foundation.Domain.Entity;
+using Teleware.Foundation.Diagnostics;
 
 namespace Playground
 {
@@ -25,6 +26,7 @@ namespace Playground
 
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
+            cb.RegisterModule<Teleware.Foundation.Diagnostics.Loggers.NLog.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.Memory.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();
@@ -32,16 +34,22 @@ namespace Playground
             var container = cb.Build();
             using (var lt = container.BeginLifetimeScope())
             {
-                var uow = lt.Resolve<IUnitOfWork>();
-                var repo = lt.Resolve<ICRUDRepository<Test>>();
-                var test = new Test();
-                repo.Add(test);
-                var item0 = repo.Query().FirstOrDefault();
-                test.Foo = "a";
-                repo.Update(test);
-                var item = repo.Query().FirstOrDefault();
-                repo.Remove(test);
-                uow.Commit();
+                var logger = lt.Resolve<ILogger<Test>>();
+                logger.Warn(1, "warn");
+                logger.Debug(2, new ArgumentException("arg"), "debug");
+                var loggerFactory = lt.Resolve<ILoggerFactory>();
+                var logger2 = loggerFactory.CreateLogger("manual");
+                logger2.Fatal(0, "death");
+                //var uow = lt.Resolve<IUnitOfWork>();
+                //var repo = lt.Resolve<ICRUDRepository<Test>>();
+                //var test = new Test();
+                //repo.Add(test);
+                //var item0 = repo.Query().FirstOrDefault();
+                //test.Foo = "a";
+                //repo.Update(test);
+                //var item = repo.Query().FirstOrDefault();
+                //repo.Remove(test);
+                //uow.Commit();
             }
         }
 

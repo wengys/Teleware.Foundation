@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Data.Entity;
-using System.Data.Entity.Core.Common;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Teleware.Foundation.Domain.Entity;
 using Teleware.Foundation.Domain.Event;
 
 namespace Teleware.Data.Impl
@@ -37,9 +31,8 @@ namespace Teleware.Data.Impl
         /// <param name="schema"></param>
         /// <param name="configurations"></param>
         public OracleEFContext(string connectionString, string schema, Lazy<IEnumerable<IDbObjConfiguration>> configurations)
-            :base(connectionString)
+            : base(connectionString)
         {
-            
             _schema = schema;
             _configurations = configurations;
             //Debug.AutoFlush = true;
