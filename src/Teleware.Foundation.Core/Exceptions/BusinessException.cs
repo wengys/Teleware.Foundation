@@ -46,4 +46,36 @@ namespace Teleware.Foundation.Exceptions
         {
         }
     }
+
+    /// <summary>
+    /// Http客户端业务异常
+    /// </summary>
+    /// <remarks>
+    /// 异常信息客户端可见
+    /// </remarks>
+    public abstract class HttpClientNoticeableException : ClientNoticeableException
+    {
+        /// <summary>
+        /// Http 状态码
+        /// </summary>
+        public int StatusCode { get; set; }
+
+        /// <inheritdoc/>
+        protected HttpClientNoticeableException(int statusCode = 400) : base()
+        {
+            StatusCode = statusCode;
+        }
+
+        /// <inheritdoc/>
+        protected HttpClientNoticeableException(string message, int statusCode = 400) : base(message)
+        {
+            StatusCode = statusCode;
+        }
+
+        /// <inheritdoc/>
+        protected HttpClientNoticeableException(string message, Exception innerException, int statusCode = 400) : base(message, innerException)
+        {
+            StatusCode = statusCode;
+        }
+    }
 }

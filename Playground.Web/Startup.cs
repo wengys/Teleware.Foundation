@@ -15,6 +15,7 @@ using Teleware.Foundation.Configuration;
 using Teleware.Foundation.AspNetCore.MVC.Filters;
 using NLog.Web;
 using NLog.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Playground.Web
 {
@@ -40,6 +41,10 @@ namespace Playground.Web
             services.AddMvc(options =>
             {
                 options.Filters.Add(typeof(UnitOfWorkCommitFilter));
+                options.Filters.Add(typeof(ApiExceptionFilter));
+
+                //options.OutputFormatters.RemoveType<TextOutputFormatter>();
+                //options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
             });
 
             var autofacConfigs = new Autofac.Configuration.ConfigurationModule(BootupConfigurationProvider.GetAutofacConfiguration());

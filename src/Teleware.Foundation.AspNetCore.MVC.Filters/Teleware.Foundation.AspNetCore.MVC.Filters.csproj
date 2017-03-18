@@ -2,16 +2,16 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard1.4</TargetFrameworks>
+    <TargetFrameworks>net46</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
   </ItemGroup>
-
 </Project>
