@@ -11,17 +11,12 @@ namespace Playground.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICacheProvider _cache;
-        private readonly IUnitOfWork _uow;
-
-        public HomeController(ICacheProvider cache, IUnitOfWork uow)
+        public HomeController()
         {
-            _cache = cache;
-            _uow = uow;
         }
+
         public IActionResult Index()
         {
-            var v=(_uow as EFUnitOfWork).Context.Database.SqlQuery<string>("select value from nls_database_parameters where parameter='NLS_CHARACTERSET'");
             return View();
         }
 

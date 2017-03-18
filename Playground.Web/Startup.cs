@@ -13,6 +13,8 @@ using Teleware.Foundation.Hosting;
 using Teleware.Foundation.Hosting.AspNetCore;
 using Teleware.Foundation.Configuration;
 using Teleware.Foundation.AspNetCore.MVC.Filters;
+using NLog.Web;
+using NLog.Extensions.Logging;
 
 namespace Playground.Web
 {
@@ -22,6 +24,11 @@ namespace Playground.Web
         {
             this.Env = new AspNetCoreEnvironment(env);
             this.BootupConfigurationProvider = new BootupConfigurationProvider(Env);
+            var nlogConfigFilePath = this.BootupConfigurationProvider.GetNLogConfigFilePath();
+            if (nlogConfigFilePath != null)
+            {
+                env.ConfigureNLog(nlogConfigFilePath);
+            }
         }
 
         public IEnvironment Env { get; private set; }
@@ -30,7 +37,8 @@ namespace Playground.Web
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options=> {
+            services.AddMvc(options =>
+            {
                 options.Filters.Add(typeof(UnitOfWorkCommitFilter));
             });
 
@@ -48,12 +56,14 @@ namespace Playground.Web
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
         {
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole();
+            loggerFactory.AddNLog();
 
             if (env.IsDevelopment())
             {
+                loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
             }
             else
             {
@@ -61,6 +71,8 @@ namespace Playground.Web
             }
 
             app.UseStaticFiles();
+
+            app.AddNLogWeb();
 
             app.UseMvc(routes =>
             {

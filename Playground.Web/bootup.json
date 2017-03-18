@@ -1,6 +1,7 @@
 {
   "Configuration": {
     "ConfigurationRootPath": "Configurations",
+    "NLog": "NLog.config",
     "Json": [
       {
         "Include": "*.config.json",
