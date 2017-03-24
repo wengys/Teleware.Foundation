@@ -44,6 +44,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.Data.Memory", "src\Teleware.Foundation.Data.Memory\Teleware.Foundation.Data.Memory.csproj", "{D97EA026-A41F-4FE2-A278-AEBD7B13B90B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teleware.Foundation.AspNet.WebApi.Filters", "src\Teleware.Foundation.AspNet.WebApi.Filters\Teleware.Foundation.AspNet.WebApi.Filters.csproj", "{662DD820-462D-4407-AFE4-05335F0D07F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -246,6 +248,18 @@ Global
 		{D97EA026-A41F-4FE2-A278-AEBD7B13B90B}.Release|x64.Build.0 = Release|Any CPU
 		{D97EA026-A41F-4FE2-A278-AEBD7B13B90B}.Release|x86.ActiveCfg = Release|Any CPU
 		{D97EA026-A41F-4FE2-A278-AEBD7B13B90B}.Release|x86.Build.0 = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Debug|x86.Build.0 = Debug|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|x64.ActiveCfg = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|x64.Build.0 = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|x86.ActiveCfg = Release|Any CPU
+		{662DD820-462D-4407-AFE4-05335F0D07F3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,5 +279,6 @@ Global
 		{08148CDD-972D-4078-80CF-59FB0688BD69} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 		{7E8F1E7F-428F-4F40-9DF2-8C84A0B49921} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 		{D97EA026-A41F-4FE2-A278-AEBD7B13B90B} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
+		{662DD820-462D-4407-AFE4-05335F0D07F3} = {9CA1F77E-DA19-4E54-B9F8-CF5F8B5AD55A}
 	EndGlobalSection
 EndGlobal
