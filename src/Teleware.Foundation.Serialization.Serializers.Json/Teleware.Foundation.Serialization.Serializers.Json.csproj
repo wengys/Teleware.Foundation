@@ -2,7 +2,14 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net46;netstandard1.4</TargetFrameworks>
+    <Description>
+      基于Json的对象序列化
+    </Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.4.0" />

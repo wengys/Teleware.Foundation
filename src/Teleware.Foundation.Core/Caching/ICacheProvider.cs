@@ -41,7 +41,7 @@ namespace Teleware.Foundation.Caching
         /// <param name="valueFactory">缓存数据生成方法</param>
         /// <param name="policy">缓存策略</param>
         /// <returns></returns>
-        T GetValueOrDefault<T>(string key, Func<T> valueFactory, CachePolicy policy = null);
+        T GetValueOrDefault<T>(string key, Func<T> valueFactory, CachePolicy? policy = null);
 
         /// <summary>
         /// 设置缓存项
@@ -50,7 +50,7 @@ namespace Teleware.Foundation.Caching
         /// <param name="key">Key</param>
         /// <param name="item">缓存数据</param>
         /// <param name="policy">缓存策略</param>
-        void Set<T>(string key, T item, CachePolicy policy = null);
+        void Set<T>(string key, T item, CachePolicy? policy = null);
 
         /// <summary>
         /// 删除缓存项

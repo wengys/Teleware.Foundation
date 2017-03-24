@@ -42,7 +42,12 @@ namespace Teleware.Foundation.Collections.Generic
             _hashCodeGetter = hashCodeGetter;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// 确定指定的对象是否相等
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public bool Equals(T x, T y)
         {
             var leftKey = _keySelector(x);
@@ -50,7 +55,11 @@ namespace Teleware.Foundation.Collections.Generic
             return _comparer(leftKey, rightKey);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// 返回指定对象的哈希代码
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public int GetHashCode(T obj)
         {
             return _hashCodeGetter(obj);

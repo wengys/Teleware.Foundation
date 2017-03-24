@@ -1,5 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <Description>
+      基于EF的数据层实现，包括基于EF的仓储、基于EF的工作单元等
+    </Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   
   <PropertyGroup>
     <TargetFrameworks>net46</TargetFrameworks>

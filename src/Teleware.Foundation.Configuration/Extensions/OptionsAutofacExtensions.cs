@@ -33,7 +33,7 @@ namespace Teleware.Foundation.Configuration.Extensions
         /// <typeparam name="TOptions"></typeparam>
         /// <param name="services"></param>
         /// <remarks>
-        /// 默认获取与<typeparamref name="TOptions"/>类型同名配置节点
+        /// 默认获取<typeparamref name="TOptions"/>类型名(省略Options结尾)配置节点
         /// 与 Microsoft.Extensions.Options.ConfigurationExtensions/OptionsConfigurationServiceCollectionExtensions.cs 同步
         /// </remarks>
         public static void ConfigureOptions<TOptions>(this ContainerBuilder services)
@@ -48,7 +48,9 @@ namespace Teleware.Foundation.Configuration.Extensions
         /// <typeparam name="TOptions"></typeparam>
         /// <param name="services"></param>
         /// <param name="configSection">配置节点名</param>
+        /// <remarks>
         /// 与 Microsoft.Extensions.Options.ConfigurationExtensions/OptionsConfigurationServiceCollectionExtensions.cs 同步
+        /// </remarks>
         public static void ConfigureOptions<TOptions>(this ContainerBuilder services, string configSection)
             where TOptions : class
         {

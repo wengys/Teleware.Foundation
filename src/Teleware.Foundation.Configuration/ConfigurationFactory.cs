@@ -8,6 +8,9 @@ using Teleware.Foundation.Hosting;
 
 namespace Teleware.Foundation.Configuration
 {
+    /// <summary>
+    /// 默认配置工厂
+    /// </summary>
     public class ConfigurationFactory : IConfigurationFactory
     {
         private readonly IBootupConfigurationProvider _bootupProvider;
@@ -16,6 +19,11 @@ namespace Teleware.Foundation.Configuration
         private readonly string _configRootFullPath;
         private IConfigurationRoot _configuration;
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="bootupProvider">启动配置提供者</param>
+        /// <param name="env">当前环境</param>
         public ConfigurationFactory(IBootupConfigurationProvider bootupProvider, IEnvironment env)
         {
             _bootupProvider = bootupProvider;
@@ -25,6 +33,10 @@ namespace Teleware.Foundation.Configuration
             _configRootFullPath = System.IO.Path.Combine(env.ContentRootPath, _configOptions.ConfigurationRootPath);
         }
 
+        /// <summary>
+        /// 获取配置
+        /// </summary>
+        /// <returns></returns>
         public IConfigurationRoot GetConfigurationRoot()
         {
             if (_configuration == null)

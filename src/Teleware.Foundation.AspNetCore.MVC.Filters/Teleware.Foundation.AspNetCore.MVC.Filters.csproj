@@ -2,7 +2,14 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>net46</TargetFrameworks>
+    <Description>
+      ASP.net Core相关过滤器，包括日志与工作单元相关过滤器
+    </Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>

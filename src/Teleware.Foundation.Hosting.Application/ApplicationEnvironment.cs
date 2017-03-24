@@ -12,6 +12,9 @@ namespace Teleware.Foundation.Hosting.Application
         /// </summary>
         /// <param name="environmentName">环境名</param>
         /// <param name="contentRootPath">资源根路径</param>
+        /// <remarks>
+        /// 根据当前进程中的环境变量 ASPNETCORE_ENVIRONMENT 决定当前环境，默认为 Development
+        /// </remarks>
         public ApplicationEnvironment(string environmentName = null, string contentRootPath = null)
         {
             EnvironmentName = environmentName

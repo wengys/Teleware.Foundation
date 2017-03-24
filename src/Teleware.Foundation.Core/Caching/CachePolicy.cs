@@ -5,7 +5,7 @@ namespace Teleware.Foundation.Caching
     /// <summary>
     /// 缓存策略
     /// </summary>
-    public class CachePolicy
+    public struct CachePolicy
     {
         /// <summary>
         /// 缓存项存活时间

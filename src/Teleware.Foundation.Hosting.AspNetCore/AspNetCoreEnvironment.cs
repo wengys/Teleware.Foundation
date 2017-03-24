@@ -14,8 +14,7 @@ namespace Teleware.Foundation.Hosting.AspNetCore
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="environmentName">环境名</param>
-        /// <param name="contentRootPath">资源根路径</param>
+        /// <param name="env">ASP.net core环境</param>
         public AspNetCoreEnvironment(IHostingEnvironment env)
         {
             _env = env;

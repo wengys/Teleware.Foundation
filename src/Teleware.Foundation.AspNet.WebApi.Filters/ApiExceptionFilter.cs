@@ -20,8 +20,9 @@ namespace Teleware.Foundation.AspNet.WebApi.Filters
     /// </summary>
     /// <remarks>
     /// 1. 记录异常日志
-    /// 2. 如果为<exception cref="ClientNoticeableException">ClientNoticeableException</exception>，则返回错误详细信息
-    /// 3. 如果为其他类型的异常，则返回默认结果
+    /// 2. 如果为<exception cref="HttpClientNoticeableException">HttpClientNoticeableException</exception>，则返回错误详细信息，并设置Http状态码
+    /// 3. 如果为<exception cref="ClientNoticeableException">ClientNoticeableException</exception>，则返回错误详细信息
+    /// 4. 如果为其他类型的异常，则返回默认结果
     /// </remarks>
     public class ApiExceptionFilter : IAutofacExceptionFilter
     {
@@ -31,7 +32,8 @@ namespace Teleware.Foundation.AspNet.WebApi.Filters
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="logger"></param>
+        /// <param name="logger">日志</param>
+        /// <param name="env">当前运行时环境</param>
         public ApiExceptionFilter(ILogger<ApiExceptionFilter> logger, IEnvironment env)
         {
             _logger = logger;
@@ -82,7 +84,7 @@ namespace Teleware.Foundation.AspNet.WebApi.Filters
                     break;
 
                 default:
-                    _logger.Error(EventIds.ClientNoticeableExceptionEventId, context.Exception, context.Exception.Message);
+                    _logger.Error(EventIds.UnknownExceptionEventId, context.Exception, context.Exception.Message);
                     context.Response = context.Request.CreateResponse(HttpStatusCode.InternalServerError, new
                     {
                         message = "服务端发生异常，请联系管理员",
@@ -116,7 +118,7 @@ namespace Teleware.Foundation.AspNet.WebApi.Filters
                     break;
 
                 default:
-                    _logger.Error(EventIds.ClientNoticeableExceptionEventId, context.Exception, context.Exception.Message);
+                    _logger.Error(EventIds.UnknownExceptionEventId, context.Exception, context.Exception.Message);
                     context.Response = context.Request.CreateResponse(HttpStatusCode.InternalServerError, new
                     {
                         message = "服务端发生异常，请联系管理员",

@@ -9,8 +9,19 @@ namespace Teleware.Foundation.Hosting
     /// </summary>
     public static class EnvironmentName
     {
-        public static readonly string Development = "Development";
-        public static readonly string Staging = "Staging";
-        public static readonly string Production = "Production";
+        /// <summary>
+        /// 开发环境
+        /// </summary>
+        public const string Development = "Development";
+
+        /// <summary>
+        /// 预演环境（正式上线前）
+        /// </summary>
+        public const string Staging = "Staging";
+
+        /// <summary>
+        /// 生产环境
+        /// </summary>
+        public const string Production = "Production";
     }
 }

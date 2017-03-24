@@ -28,6 +28,7 @@ namespace Teleware.Data.Impl
         /// <summary>
         /// 构造函数
         /// </summary>
+        /// <param name="connectionString">连接字符串</param>
         /// <param name="schema"></param>
         /// <param name="configurations"></param>
         public OracleEFContext(string connectionString, string schema, Lazy<IEnumerable<IDbObjConfiguration>> configurations)

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Teleware.Foundation.Exceptions;
 
-namespace Teleware.Foundation.AspNet.WebApi.Filters
+namespace Teleware.Foundation.AspNetCore.MVC.Filters
 {
     /// <summary>
     /// 事件日志Id

@@ -9,7 +9,10 @@ namespace Teleware.Foundation.Configuration
     /// </summary>
     public class Module : Autofac.Module
     {
-        /// <inheritdoc/>
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             builder.AddOptions();

@@ -58,13 +58,8 @@ namespace Teleware.Foundation.Hosting
         /// 检查当前是否位于特定环境之中
         /// </summary>
         /// <param name="hostingEnvironment"><see cref="IEnvironment"/>实例</param>
+        /// <param name="environmentName">环境名</param>
         /// <returns>True/False</returns>
-        /// <summary>
-        /// Compares the current hosting environment name against the specified value.
-        /// </summary>
-        /// <param name="hostingEnvironment">An instance of <see cref="IHostingEnvironment"/>.</param>
-        /// <param name="environmentName">Environment name to validate against.</param>
-        /// <returns>True if the specified name is the same as the current environment, otherwise false.</returns>
         public static bool IsEnvironment(
             this IEnvironment hostingEnvironment,
             string environmentName)
