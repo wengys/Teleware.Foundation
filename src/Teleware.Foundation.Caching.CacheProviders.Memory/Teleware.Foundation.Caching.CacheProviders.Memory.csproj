@@ -5,9 +5,8 @@
     <Description>
       基于MemoryCache的缓存
     </Description>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
@@ -20,5 +19,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
   </ItemGroup>
-
 </Project>

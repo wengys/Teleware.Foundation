@@ -5,7 +5,6 @@
     <Description>
       基于内存的数据层实现，主要用于原型测试
     </Description>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>

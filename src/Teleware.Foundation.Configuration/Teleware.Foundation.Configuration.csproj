@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\..\build\common.props" />
-  
+
   <PropertyGroup>
     <Description>
       配置相关
     </Description>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
@@ -24,5 +23,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
   </ItemGroup>
-
 </Project>
