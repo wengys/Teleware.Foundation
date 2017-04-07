@@ -19,7 +19,7 @@ namespace Teleware.Foundation.Data.Extensions
         {
             // TODO: 等待.Net core拿出查询DbProviderFactory的方案
             var connectionConfig = dbConfig.GetConnectionString(connectionName);
-            connectionConfig.ProviderName.ShouldBe(c => c == nameof(Oracle.ManagedDataAccess.Client),()=>new ArgumentException($"连接字符串 {connectionName} 的ProviderName必须为 {nameof(Oracle.ManagedDataAccess.Client)}",nameof(connectionName)));
+            connectionConfig.ProviderName.ShouldBe(c => c == "Oracle.ManagedDataAccess.Client",()=>new ArgumentException($"连接字符串 {connectionName} 的ProviderName必须为 Oracle.ManagedDataAccess.Client", nameof(connectionName)));
             var conn = Oracle.ManagedDataAccess.Client.OracleClientFactory.Instance.CreateConnection();
             conn.ConnectionString = connectionConfig.ConnectionString;
             return conn;
