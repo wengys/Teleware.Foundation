@@ -13,9 +13,9 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
     public class NLogLoggerFactory : ILoggerFactory
     {
         private static ConcurrentDictionary<string, ILogger> _cache = new ConcurrentDictionary<string, ILogger>();
-        private readonly NLogLogManager _innerLogManager;
+        private readonly INLogLoggerManager _innerLogManager;
 
-        internal NLogLoggerFactory(NLogLogManager innerLogManager)
+        internal NLogLoggerFactory(INLogLoggerManager innerLogManager)
         {
             _innerLogManager = innerLogManager;
         }

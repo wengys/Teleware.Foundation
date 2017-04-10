@@ -12,6 +12,7 @@
     <ProjectReference Include="..\src\Teleware.Foundation.Data.EntityFramework.Oracle\Teleware.Foundation.Data.EntityFramework.Oracle.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Data.EntityFramework\Teleware.Foundation.Data.EntityFramework.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Data.Memory\Teleware.Foundation.Data.Memory.csproj" />
+    <ProjectReference Include="..\src\Teleware.Foundation.Diagnostics.Loggers.NLog.Application\Teleware.Foundation.Diagnostics.Loggers.NLog.Application.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Diagnostics.Loggers.NLog\Teleware.Foundation.Diagnostics.Loggers.NLog.csproj" />
     <ProjectReference Include="..\src\Teleware.Foundation.Hosting.Application\Teleware.Foundation.Hosting.Application.csproj" />
   </ItemGroup>

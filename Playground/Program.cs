@@ -27,6 +27,7 @@ namespace Playground
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
             cb.RegisterModule<Teleware.Foundation.Diagnostics.Loggers.NLog.Module>();
+            cb.RegisterModule<Teleware.Foundation.Diagnostics.Loggers.NLog.Application.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.Memory.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();
@@ -36,10 +37,10 @@ namespace Playground
             {
                 var logger = lt.Resolve<ILogger<Test>>();
                 logger.Warn(1, "warn");
-                logger.Debug(2, new ArgumentException("arg"), "debug");
-                var loggerFactory = lt.Resolve<ILoggerFactory>();
-                var logger2 = loggerFactory.CreateLogger("manual");
-                logger2.Fatal(0, "death");
+                //logger.Debug(2, new ArgumentException("arg"), "debug");
+                //var loggerFactory = lt.Resolve<ILoggerFactory>();
+                //var logger2 = loggerFactory.CreateLogger("manual");
+                //logger2.Fatal(0, "death");
                 //var uow = lt.Resolve<IUnitOfWork>();
                 //var repo = lt.Resolve<ICRUDRepository<Test>>();
                 //var test = new Test();

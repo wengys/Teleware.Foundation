@@ -7,17 +7,17 @@ using Teleware.Foundation.Configuration;
 
 using NLogSelf = NLog;
 
-namespace Teleware.Foundation.Diagnostics.Loggers.NLog
+namespace Teleware.Foundation.Diagnostics.Loggers.NLog.Application
 {
-    internal class NLogLogManager
+    internal class NLogLoggerManager : INLogLoggerManager
     {
         private static bool _initialized = false;
 
-        public NLogLogManager(IBootupConfigurationProvider bootupConfigurationProvider)
+        public NLogLoggerManager(IBootupConfigurationProvider bootupConfigurationProvider)
         {
             if (_initialized == false)
             {
-                lock (typeof(NLogLogManager))
+                lock (typeof(NLogLoggerManager))
                 {
                     if (_initialized != false)
                     {
@@ -37,7 +37,7 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
             }
         }
 
-        internal NLogSelf.ILogger GetLogger(string name)
+        public NLogSelf.ILogger GetLogger(string name)
         {
             return NLogSelf.LogManager.GetLogger(name);
         }

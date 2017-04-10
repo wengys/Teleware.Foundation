@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using Teleware.Foundation.Options;
 using Teleware.Foundation.Assertion;
 using System.Data.Entity;
+using Teleware.Foundation.Diagnostics;
 
 namespace Teleware.Data.Impl
 {
@@ -15,16 +16,22 @@ namespace Teleware.Data.Impl
     {
         private readonly DatabaseOptions _configure;
         private readonly Lazy<IEnumerable<IDbObjConfiguration>> _dbConfigurations;
+        private readonly ILogger<OracleEFContext> _logger;
 
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="configureOptions"></param>
         /// <param name="dbConfigurations"></param>
-        public OracleEFContextFactory(IOptions<DatabaseOptions> configureOptions, Lazy<IEnumerable<IDbObjConfiguration>> dbConfigurations)
+        /// <param name="logger"></param>
+        public OracleEFContextFactory(
+            IOptions<DatabaseOptions> configureOptions,
+            Lazy<IEnumerable<IDbObjConfiguration>> dbConfigurations,
+            ILogger<OracleEFContext> logger)
         {
             _configure = configureOptions.Value;
             _dbConfigurations = dbConfigurations;
+            _logger = logger;
         }
 
         /// <inheritdoc/>
@@ -33,7 +40,7 @@ namespace Teleware.Data.Impl
             var connString = _configure.GetConnectionString(connectionName);
             connString.ProviderName.ShouldBe(pn => pn == "Oracle.ManagedDataAccess.Client", $"不支持的ProviderName: {connString.ProviderName}");
             string schema = GetOracleSchema(connString.ConnectionString);
-            return new OracleEFContext(connString.ConnectionString, schema, _dbConfigurations);
+            return new OracleEFContext(new Oracle.ManagedDataAccess.Client.OracleConnection(connString.ConnectionString), schema, _dbConfigurations, _logger);
         }
 
         private static string GetOracleSchema(string connectionString)

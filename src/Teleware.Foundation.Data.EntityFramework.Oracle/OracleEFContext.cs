@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Core.Objects.DataClasses;
@@ -7,6 +8,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
 using System.Linq;
+using Teleware.Foundation.Diagnostics;
 using Teleware.Foundation.Domain.Event;
 
 namespace Teleware.Data.Impl
@@ -14,7 +16,6 @@ namespace Teleware.Data.Impl
     /// <summary>
     /// 增加了初始化功能的<see cref="DbContext"/>
     /// </summary>
-    [DbConfigurationType(typeof(OracleConfiguration))]
     public class OracleEFContext : DbContext
     {
         private readonly string _schema;
@@ -28,16 +29,20 @@ namespace Teleware.Data.Impl
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="connectionString">连接字符串</param>
-        /// <param name="schema"></param>
-        /// <param name="configurations"></param>
-        public OracleEFContext(string connectionString, string schema, Lazy<IEnumerable<IDbObjConfiguration>> configurations)
-            : base(connectionString)
+        /// <param name="dbConnection">连接</param>
+        /// <param name="schema">oracle架构</param>
+        /// <param name="configurations">实体映射配置</param>
+        /// <param name="logger">日志</param>
+        public OracleEFContext(
+            DbConnection dbConnection,
+            string schema,
+            Lazy<IEnumerable<IDbObjConfiguration>> configurations,
+            ILogger<OracleEFContext> logger)
+            : base(dbConnection, true)
         {
             _schema = schema;
             _configurations = configurations;
-            //Debug.AutoFlush = true;
-            //this.Database.Log = s => Debug.WriteLine(s);
+            this.Database.Log = (msg) => logger.Trace(0, msg);
         }
 
         /// <inheritdoc/>
@@ -121,14 +126,6 @@ namespace Teleware.Data.Impl
             }).FirstOrDefault();
             bool isEntityRequiredForeignKeyEmpty = relEnd != null;
             return isEntityRequiredForeignKeyEmpty;
-        }
-    }
-
-    internal class OracleConfiguration : DbConfiguration
-    {
-        public OracleConfiguration()
-        {
-            SetProviderServices("Oracle.ManagedDataAccess.Client", Oracle.ManagedDataAccess.EntityFramework.EFOracleProviderServices.Instance);
         }
     }
 }
