@@ -14,7 +14,7 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
     {
         private static NLogSelf.ILogger _innerLogger;
 
-        public NLogLoggerImpl(string loggerName, INLogLoggerManager innerLogManager)
+        public NLogLoggerImpl(string loggerName, NLogLoggerManager innerLogManager)
         {
             if (_innerLogger == null)
             {
@@ -103,7 +103,7 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog
     {
         private static NLogSelf.ILogger _innerLogger;
 
-        public NLogLoggerImpl(INLogLoggerManager innerLogManager)
+        public NLogLoggerImpl(NLogLoggerManager innerLogManager)
         {
             if (_innerLogger == null)
             {

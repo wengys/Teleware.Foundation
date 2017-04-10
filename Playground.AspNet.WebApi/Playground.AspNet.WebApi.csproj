@@ -203,10 +203,6 @@
       <Project>{C3D8BF66-C39E-4873-93CC-8A23387467DF}</Project>
       <Name>Teleware.Foundation.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\src\Teleware.Foundation.Diagnostics.Loggers.NLog.AspNet\Teleware.Foundation.Diagnostics.Loggers.NLog.AspNet.csproj">
-      <Project>{e1b3f520-af4c-46af-849d-28252cc0f4ab}</Project>
-      <Name>Teleware.Foundation.Diagnostics.Loggers.NLog.AspNet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\src\Teleware.Foundation.Hosting.Application\Teleware.Foundation.Hosting.Application.csproj">
       <Project>{08148CDD-972D-4078-80CF-59FB0688BD69}</Project>
       <Name>Teleware.Foundation.Hosting.Application</Name>

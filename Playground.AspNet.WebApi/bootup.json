@@ -19,7 +19,6 @@
       { "type": "Teleware.Foundation.Data.EntityFramework.Module, Teleware.Foundation.Data.EntityFramework" },
       { "type": "Teleware.Foundation.Data.EntityFramework.Oracle.Module, Teleware.Foundation.Data.EntityFramework.Oracle" },
       { "type": "Teleware.Foundation.Diagnostics.Loggers.NLog.Module, Teleware.Foundation.Diagnostics.Loggers.NLog" },
-      { "type": "Teleware.Foundation.Diagnostics.Loggers.NLog.AspNet.Module, Teleware.Foundation.Diagnostics.Loggers.NLog.AspNet" }
     ]
   }
 }

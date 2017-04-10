@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Teleware.Foundation.Configuration;
-
+using Teleware.Foundation.Hosting;
 using NLogSelf = NLog;
 
-namespace Teleware.Foundation.Diagnostics.Loggers.NLog.Application
+namespace Teleware.Foundation.Diagnostics.Loggers.NLog
 {
-    internal class NLogLoggerManager : INLogLoggerManager
+    internal class NLogLoggerManager
     {
         private static bool _initialized = false;
 
-        public NLogLoggerManager(IBootupConfigurationProvider bootupConfigurationProvider)
+        public NLogLoggerManager(IBootupConfigurationProvider bootupConfigurationProvider, IEnvironment env)
         {
             if (_initialized == false)
             {
@@ -26,6 +22,7 @@ namespace Teleware.Foundation.Diagnostics.Loggers.NLog.Application
                     var configurationFilePath = bootupConfigurationProvider.GetNLogConfigFilePath();
                     if (configurationFilePath != null)
                     {
+                        configurationFilePath = Path.Combine(env.ContentRootPath, configurationFilePath);
                         if (System.IO.File.Exists(configurationFilePath))
                         {
                             var config = new NLogSelf.Config.XmlLoggingConfiguration(configurationFilePath, false);

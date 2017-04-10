@@ -27,7 +27,6 @@ namespace Playground
             cb.RegisterModule<Teleware.Foundation.Core.Module>();
             cb.RegisterModule<Teleware.Foundation.Configuration.Module>();
             cb.RegisterModule<Teleware.Foundation.Diagnostics.Loggers.NLog.Module>();
-            cb.RegisterModule<Teleware.Foundation.Diagnostics.Loggers.NLog.Application.Module>();
             cb.RegisterModule<Teleware.Foundation.Data.Memory.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Module>();
             //cb.RegisterModule<Teleware.Foundation.Data.EntityFramework.Oracle.Module>();
