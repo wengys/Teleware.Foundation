@@ -39,11 +39,16 @@ namespace Teleware.Data.Impl
         {
             var connString = _configure.GetConnectionString(connectionName);
             connString.ProviderName.ShouldBe(pn => pn == "Oracle.ManagedDataAccess.Client", $"不支持的ProviderName: {connString.ProviderName}");
-            string schema = GetOracleSchema(connString.ConnectionString);
+            string schema = GetSchema(connString);
             return new OracleEFContext(new Oracle.ManagedDataAccess.Client.OracleConnection(connString.ConnectionString), schema, _dbConfigurations, _logger);
         }
 
-        private static string GetOracleSchema(string connectionString)
+        private static string GetSchema(ConnectionStringConfig connString)
+        {
+            return connString.Schema ?? GetUserIdAsSchema(connString.ConnectionString);
+        }
+
+        private static string GetUserIdAsSchema(string connectionString)
         {
             const string userIdRegex = "User Id=(?<schema>[^;]*);";
             var item = Regex.Match(connectionString, userIdRegex, RegexOptions.IgnoreCase);

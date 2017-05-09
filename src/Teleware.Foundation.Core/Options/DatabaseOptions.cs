@@ -48,6 +48,11 @@ namespace Teleware.Foundation.Options
         /// </summary>
         public string ProviderName { get; set; }
 
+        /// <summary>
+        /// 数据库架构
+        /// </summary>
+        public string Schema { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
