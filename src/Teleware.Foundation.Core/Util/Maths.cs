@@ -1,4 +1,50 @@
-﻿//using System;
+﻿using System;
+using Teleware.Foundation.Assertion;
+
+namespace Teleware.Foundation.Util
+{
+    /// <summary>
+    /// 数学相关帮助扩展
+    /// </summary>
+    public static class MathExtensions
+    {
+        /// <summary>
+        /// 将数字的小数部分截断为特定位数
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="digits">小数位数</param>
+        /// <returns></returns>
+        public static decimal ToFixed(this decimal source, int digits)
+        {
+            digits.ShouldBe(d => d >= 0, () => new ArgumentException("digits应大等于0", nameof(digits)));
+            if (digits == 0)
+            {
+                return Math.Truncate(source);
+            }
+            var digitsMultiplier = (int)Math.Pow(10, digits);
+            return Math.Truncate(source * digitsMultiplier) / digitsMultiplier;
+        }
+
+        /// <summary>
+        /// 将数字的小数部分截断为特定位数
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="digits">小数位数</param>
+        /// <returns></returns>
+        public static double ToFixed(this double source, int digits)
+        {
+            digits.ShouldBe(d => d >= 0, () => new ArgumentException("digits应大等于0", nameof(digits)));
+            if (digits == 0)
+            {
+                return Math.Truncate(source);
+            }
+            var digitsMultiplier = (int)Math.Pow(10, digits);
+            return Math.Truncate(source * digitsMultiplier) / digitsMultiplier;
+        }
+    }
+}
+
+//using System;
 
 //namespace Teleware.Foundation.Util
 //{
