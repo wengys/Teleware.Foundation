@@ -53,7 +53,7 @@ namespace Teleware.Foundation.Util
         /// <returns></returns>
         public static double MuToSquareMeter(double mu)
         {
-            var result = mu * 10000;
+            var result = mu * 666.67;
             return result;
         }
 
@@ -65,7 +65,7 @@ namespace Teleware.Foundation.Util
 
         public static double HectareToSquareMeter(double hectare)
         {
-            var result = hectare * 666.67;
+            var result = hectare * 10000;
             return result;
         }
     }
