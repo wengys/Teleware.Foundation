@@ -5,6 +5,9 @@ using Teleware.Foundation.Data.Impl;
 using Teleware.Foundation.Domain;
 using Teleware.Foundation.Domain.Event;
 using Teleware.Foundation.Domain.Impl;
+using System.Runtime.CompilerServices;
+
+[assembly:InternalsVisibleTo("Teleware.Foundation.Core.Tests")]
 
 namespace Teleware.Foundation.Core
 {
