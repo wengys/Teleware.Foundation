@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.Core", "src\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj", "{44C618BE-7229-4305-BED9-79C2F0198C28}"
 EndProject
@@ -49,6 +49,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teleware.Foundation.Data.Extensions.Oracle", "src\Teleware.Foundation.Data.Extensions.Oracle\Teleware.Foundation.Data.Extensions.Oracle.csproj", "{2DB6F254-8090-45F2-84AA-C33933576E21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.AspNet.WebApi", "Playground.AspNet.WebApi\Playground.AspNet.WebApi.csproj", "{FD7E7AE3-F070-4F57-B106-FE570245E7A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Traditional", "Playground.Traditional\Playground.Traditional.csproj", "{FADAE661-287C-4FC7-80D5-9CC11F8667A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -288,6 +290,18 @@ Global
 		{FD7E7AE3-F070-4F57-B106-FE570245E7A1}.Release|x64.Build.0 = Release|Any CPU
 		{FD7E7AE3-F070-4F57-B106-FE570245E7A1}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD7E7AE3-F070-4F57-B106-FE570245E7A1}.Release|x86.Build.0 = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|x64.Build.0 = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Debug|x86.Build.0 = Debug|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|x64.ActiveCfg = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|x64.Build.0 = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|x86.ActiveCfg = Release|Any CPU
+		{FADAE661-287C-4FC7-80D5-9CC11F8667A7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

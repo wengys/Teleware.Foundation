@@ -1,23 +1,25 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileSystemGlobbing;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using System.Net.Http;
+using System.Threading;
 using Teleware.Foundation.Hosting;
+using Winton.Extensions.Configuration.Consul;
 
 namespace Teleware.Foundation.Configuration
 {
     /// <summary>
     /// 默认配置工厂
     /// </summary>
-    public class ConfigurationFactory : IConfigurationFactory
+    public class ConfigurationFactory : IConfigurationFactory,IDisposable
     {
         private readonly IBootupConfigurationProvider _bootupProvider;
         private readonly IEnvironment _env;
         private readonly ConfigFactoryOptions _configOptions;
         private readonly string _configRootFullPath;
         private IConfigurationRoot _configuration;
+        private CancellationTokenSource _consulCancellationTokenSource;
 
         /// <summary>
         /// 构造函数
@@ -31,6 +33,15 @@ namespace Teleware.Foundation.Configuration
             _configOptions = new ConfigFactoryOptions();
             ConfigurationBinder.Bind(bootupProvider.GetBootupConfiguration().GetSection("Configuration"), _configOptions);
             _configRootFullPath = System.IO.Path.Combine(env.ContentRootPath, _configOptions.ConfigurationRootPath);
+        }
+
+        /// <summary>
+        /// 释放资源
+        /// </summary>
+        public void Dispose()
+        {
+            // 实际环境中，基本上到这里程序将停止了。此时是否释放不重要
+            _consulCancellationTokenSource?.Dispose();
         }
 
         /// <summary>
@@ -62,6 +73,16 @@ namespace Teleware.Foundation.Configuration
                     }
                 }
 
+                if (_configOptions.Consul?.Enable ?? false)
+                {
+                    if (_configOptions.Consul.Name == null)
+                    {
+                        throw new ArgumentException("Name is required when reading from consul");
+                    }
+                    _consulCancellationTokenSource = new CancellationTokenSource();
+                    configurationBuilder.AddConsul($"{_configOptions.Consul.Name}.{_env.EnvironmentName}", _consulCancellationTokenSource.Token);
+                }
+                
                 _configuration = configurationBuilder.Build();
             }
 
@@ -72,6 +93,13 @@ namespace Teleware.Foundation.Configuration
         {
             public string ConfigurationRootPath { get; set; }
             public JsonConfigFactoryOptions[] Json { get; set; }
+            public ConsulConfigFactoryOption Consul { get; set; }
+        }
+
+        private class ConsulConfigFactoryOption
+        {
+            public bool Enable { get; set; }
+            public string Name { get; set; }
         }
 
         private class JsonConfigFactoryOptions
