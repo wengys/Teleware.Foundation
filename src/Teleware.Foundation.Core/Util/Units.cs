@@ -42,7 +42,7 @@ namespace Teleware.Foundation.Util
 
         public static double ToMu(double squareMeter)
         {
-            var result = (squareMeter / 666.66667);
+            var result = (squareMeter / (1/15 * 10000));
             return Math.Round(result * 10000) / 10000;
         }
 
@@ -53,7 +53,7 @@ namespace Teleware.Foundation.Util
         /// <returns></returns>
         public static double MuToSquareMeter(double mu)
         {
-            var result = mu * 666.66667;
+            var result = mu * (1/15 * 10000);
             return result;
         }
 
