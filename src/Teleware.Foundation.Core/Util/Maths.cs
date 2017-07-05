@@ -9,7 +9,7 @@ namespace Teleware.Foundation.Util
     public static class MathExtensions
     {
         /// <summary>
-        /// 将数字的小数部分截断为特定位数
+        /// 将数字的小数部分四舍五入为特定位数
         /// </summary>
         /// <param name="source"></param>
         /// <param name="digits">小数位数</param>
@@ -17,16 +17,11 @@ namespace Teleware.Foundation.Util
         public static decimal ToFixed(this decimal source, int digits)
         {
             digits.ShouldBe(d => d >= 0, () => new ArgumentException("digits应大等于0", nameof(digits)));
-            if (digits == 0)
-            {
-                return Math.Truncate(source);
-            }
-            var digitsMultiplier = (int)Math.Pow(10, digits);
-            return Math.Truncate(source * digitsMultiplier) / digitsMultiplier;
+            return Math.Round(source, digits, MidpointRounding.AwayFromZero);
         }
 
         /// <summary>
-        /// 将数字的小数部分截断为特定位数
+        /// 将数字的小数部分四舍五入为特定位数
         /// </summary>
         /// <param name="source"></param>
         /// <param name="digits">小数位数</param>
@@ -34,12 +29,7 @@ namespace Teleware.Foundation.Util
         public static double ToFixed(this double source, int digits)
         {
             digits.ShouldBe(d => d >= 0, () => new ArgumentException("digits应大等于0", nameof(digits)));
-            if (digits == 0)
-            {
-                return Math.Truncate(source);
-            }
-            var digitsMultiplier = (int)Math.Pow(10, digits);
-            return Math.Truncate(source * digitsMultiplier) / digitsMultiplier;
+            return Math.Round(source, digits, MidpointRounding.AwayFromZero);
         }
     }
 }
