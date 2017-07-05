@@ -23,6 +23,7 @@ namespace Teleware.Foundation.Util
     /// </summary>
     public static class Units
     {
+        private const double MU_SM_RATIO = (1 / 15.0 * 10000);
         /// <summary>
         /// 平方米转公顷
         /// </summary>
@@ -42,7 +43,7 @@ namespace Teleware.Foundation.Util
 
         public static double ToMu(double squareMeter)
         {
-            var result = (squareMeter / (1/15 * 10000));
+            var result = (squareMeter / MU_SM_RATIO);
             return Math.Round(result * 10000) / 10000;
         }
 
@@ -53,7 +54,7 @@ namespace Teleware.Foundation.Util
         /// <returns></returns>
         public static double MuToSquareMeter(double mu)
         {
-            var result = mu * (1/15 * 10000);
+            var result = mu * MU_SM_RATIO;
             return result;
         }
 
