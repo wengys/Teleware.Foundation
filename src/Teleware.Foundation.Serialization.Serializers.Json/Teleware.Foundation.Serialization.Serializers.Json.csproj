@@ -11,8 +11,8 @@
     <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+    <PackageReference Include="Autofac" Version="4.6.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Teleware.Foundation.Core\Teleware.Foundation.Core.csproj" />
